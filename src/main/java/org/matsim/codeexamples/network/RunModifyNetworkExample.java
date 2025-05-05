@@ -40,11 +40,10 @@ public class RunModifyNetworkExample {
 		new MatsimNetworkReader(network).readFile("path-to-network.xml");
 		
 		// iterate through all links
-		for (Link l : network.getLinks().values()){
-			//get current capacity
-			double oldCapacity = l.getCapacity();
-			double newCapacity = oldCapacity / 2.0  ;
-			
+		 for (Link link : network.getLinks().values()) {
+            // 直接设置 freespeed = 10 m/s
+            link.setFreespeed(10.0);  // 单位：米/秒（m/s）
+        }
 			//set new capacity
 			l.setCapacity(newCapacity);
 		}
